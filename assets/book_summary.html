@@ -1,0 +1,33 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" />
+<meta name="viewport" content="user-scalable=no,width=device-width"/>
+<link href="layout.css" rel="stylesheet" type="text/css" />
+
+<script language="javascript" src="jquery-1.4.2.min.js"></script>
+<script language="javascript">
+function history(){
+	$("#history").html("");
+	
+	var array=eval("("+window.searchHistory.getBookResult()+")");
+	for(var i=0;i<3;i++){
+		var bookInfo=array[i];
+		var bookInfoElement=$(bookInfo.isbn+'<a href="" onClick="window.searchHistory.getDetail('+'\''+bookInfo.isbn+'\''+')">'+bookInfo.isbn+'<br></a>');
+
+		$("#history").append(bookInfoElement);
+	}
+}
+</script>
+
+</head>
+	<body onload="history();">
+		
+			<img src="background.jpg">
+			<div id="main">
+				<h2 style="font-family:Helvetica; color:#000;text-shadow:0px 1px 1px #fff;">搜索历史记录：</h2>
+				<div id="history" >
+				</div>
+			</div>
+	
+	</body>
+</html>

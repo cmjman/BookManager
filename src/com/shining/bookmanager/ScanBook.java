@@ -118,6 +118,8 @@ public class ScanBook extends Activity implements OnClickListener{
 
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
  	
+		  if (null == data) 
+			  return;
 	
 		if (requestCode != 0) {
 			return;
